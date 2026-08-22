@@ -744,3 +744,80 @@ footer strong {
     min-height: auto;
   }
 }
+/* =========================
+   EDUCATION & CREDENTIALS
+========================= */
+
+.credentials {
+  background: #e9eeec;
+}
+
+.credentials-intro {
+  color: #596970 !important;
+  max-width: 760px;
+  margin-bottom: 45px;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.credential-card {
+  background: #ffffff;
+  border: 1px solid #d5dfdc;
+  padding: 28px;
+  border-radius: 7px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.credential-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(15, 40, 50, 0.1);
+}
+
+.featured-credential {
+  border-top: 4px solid #d6a445;
+}
+
+.credential-type {
+  color: #b98429;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.credential-card h3 {
+  color: #123b47;
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+
+.credential-card .institution {
+  color: #40545d;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.credential-meta {
+  color: #697980;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.professional-card {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .professional-card {
+    grid-column: auto;
+  }
+}
