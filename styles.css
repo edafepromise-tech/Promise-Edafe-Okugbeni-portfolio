@@ -594,3 +594,43 @@ footer strong {
     letter-spacing: -1px;
   }
 }
+.section-intro {
+  max-width: 760px;
+  color: #aebfc5;
+  margin-top: -8px;
+  font-size: 1rem;
+}
+
+.featured-job {
+  position: relative;
+}
+
+.experience-label {
+  display: inline-block;
+  color: #d7a94d !important;
+  font-size: 0.68rem !important;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0 0 8px !important;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.experience-tags span {
+  border: 1px solid #49616b;
+  color: #d6e1e4;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 520px) {
+  .experience-tags {
+    gap: 6px;
+  }
+}
