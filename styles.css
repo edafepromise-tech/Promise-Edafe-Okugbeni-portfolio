@@ -240,10 +240,12 @@ body {
   padding: 17px 0;
 }
 
+/* Corrected: keeps 6+ and Years on the same line */
 .stat strong {
-  display: block;
+  display: inline;
   color: #e0b457;
   font-size: 1.3rem;
+  margin-right: 8px;
 }
 
 .stat span {
@@ -594,6 +596,11 @@ footer strong {
     letter-spacing: -1px;
   }
 }
+
+/* =========================
+   EXPERIENCE ENHANCEMENTS
+========================= */
+
 .section-intro {
   max-width: 760px;
   color: #aebfc5;
@@ -634,6 +641,7 @@ footer strong {
     gap: 6px;
   }
 }
+
 /* =========================
    ENGINEERING CAPABILITIES
 ========================= */
@@ -744,6 +752,7 @@ footer strong {
     min-height: auto;
   }
 }
+
 /* =========================
    EDUCATION & CREDENTIALS
 ========================= */
