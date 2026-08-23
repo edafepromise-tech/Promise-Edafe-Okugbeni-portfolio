@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-  <!-- =====================================================
-       BASIC SEO / PAGE SETTINGS
-  ====================================================== -->
-
   <meta charset="UTF-8">
 
   <meta
@@ -15,74 +11,51 @@
 
   <meta
     name="description"
-    content="Engr. Promise Edafe Okugbeni — Mechanical & Operations Engineer specializing in oil & gas operations, offshore mechanical maintenance, rotating equipment, field operations, equipment reliability and HSE."
+    content="Engr. Promise Edafe Okugbeni (MNSE, COREN) — Mechanical & Operations Engineer with experience in offshore oil & gas, mechanical maintenance, field operations, equipment reliability and HSE."
   >
 
   <meta
     name="keywords"
-    content="Promise Edafe Okugbeni, Mechanical Engineer, Operations Engineer, Oil and Gas Engineer, Mechanical Maintenance, Offshore Engineer, Field Operator, Operations Engineer Nigeria, Port Harcourt Engineer"
+    content="Promise Edafe Okugbeni, Mechanical Engineer, Operations Engineer, Mechanical Maintenance, Oil and Gas, Offshore Engineer, Field Operator, Port Harcourt, Nigeria"
   >
 
-  <meta
-    name="author"
-    content="Engr. Promise Edafe Okugbeni"
-  >
+  <meta name="author" content="Engr. Promise Edafe Okugbeni">
 
-  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#061720">
 
   <title>
-    Engr. Promise Edafe Okugbeni | Mechanical & Operations Engineer
+    Engr. Promise Edafe Okugbeni (MNSE, COREN) | Mechanical & Operations Engineer
   </title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <!-- =====================================================
-       FONTS
-  ====================================================== -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap"
     rel="stylesheet"
   >
 
-
-  <!-- =====================================================
-       CSS
-  ====================================================== -->
-
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
-
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 
 <body>
 
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-<!-- =====================================================
-     HEADER / NAVIGATION
-====================================================== -->
-
-<header class="site-header">
+<header class="site-header" id="site-header">
 
   <div class="container nav">
 
     <a
-      href="#home"
       class="brand"
-      aria-label="Promise Edafe Okugbeni Home"
+      href="#home"
+      aria-label="Promise Edafe Okugbeni home"
     >
       PROMISE EDAFE<span>.</span>
     </a>
@@ -90,21 +63,24 @@
 
     <button
       class="menu-btn"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
       type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-navigation"
     >
       ☰
     </button>
 
 
-    <nav aria-label="Main navigation">
+    <nav id="main-navigation" aria-label="Main navigation">
+
+      <a href="#home">Home</a>
 
       <a href="#about">About</a>
 
       <a href="#experience">Experience</a>
 
-      <a href="#expertise">Expertise</a>
+      <a href="#skills">Expertise</a>
 
       <a href="#projects">Projects</a>
 
@@ -119,30 +95,27 @@
 </header>
 
 
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main>
 
 
-<!-- =====================================================
-     HERO SECTION
-====================================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<section
-  id="home"
-  class="hero"
->
+<section id="home" class="hero">
 
-  <div class="container hero-grid">
+  <div class="hero-grid container">
 
-
-    <!-- HERO CONTENT -->
-
-    <div class="hero-content">
+    <div class="hero-content reveal-left">
 
       <p class="eyebrow">
         MECHANICAL & OPERATIONS ENGINEER
         <br>
-        OIL & GAS • OFFSHORE • INDUSTRIAL OPERATIONS
+        OIL & GAS · OFFSHORE · INDUSTRIAL OPERATIONS
       </p>
 
 
@@ -153,7 +126,7 @@
 
 
       <p class="hero-tagline">
-        Mechanical Maintenance • Field Operations • Equipment Reliability
+        Mechanical Maintenance · Field Operations · Equipment Reliability
       </p>
 
 
@@ -163,40 +136,63 @@
 
 
       <p class="intro">
-
         Mechanical & Operations Engineer with 6+ years of practical
-        experience across offshore oil & gas, mechanical maintenance,
-        refinery maintenance, field operations and industrial
-        engineering environments.
-
+        oil & gas and industrial field experience spanning offshore
+        mechanical maintenance, refinery maintenance and operations
+        engineering.
       </p>
 
 
       <p class="intro">
-
         Experienced in preventive and corrective maintenance,
-        rotating equipment, mechanical troubleshooting, equipment
-        inspection, process monitoring, field execution, technical
-        documentation and HSE-focused safe-work practices.
-
+        mechanical troubleshooting, rotating equipment, process
+        monitoring, field execution, technical reporting and
+        safe-work practices in safety-critical environments.
       </p>
 
 
       <div class="actions">
 
         <a
-          href="#contact"
           class="btn primary"
+          href="#contact"
         >
           Let's Connect
         </a>
 
 
         <a
-          href="cv.html"
           class="btn secondary"
+          href="cv.html"
         >
           View My CV
+        </a>
+
+      </div>
+
+
+      <div class="social-links">
+
+        <a
+          href="mailto:edafepromise@gmail.com"
+        >
+          Email
+        </a>
+
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+
+        <a
+          href="tel:+2348063981317"
+        >
+          Call Me
         </a>
 
       </div>
@@ -204,10 +200,9 @@
     </div>
 
 
+    <!-- HERO CARD -->
 
-    <!-- HERO PROFILE CARD -->
-
-    <aside class="hero-card">
+    <aside class="hero-card reveal-right">
 
       <div class="status">
         OPEN TO ENGINEERING OPPORTUNITIES
@@ -231,12 +226,10 @@
 
       <div class="stat">
 
-        <strong>
-          6+ Years
-        </strong>
+        <strong>6+ Years</strong>
 
         <span>
-          Engineering & field experience
+          practical engineering experience
         </span>
 
       </div>
@@ -244,12 +237,10 @@
 
       <div class="stat">
 
-        <strong>
-          Offshore
-        </strong>
+        <strong>Offshore</strong>
 
         <span>
-          Oil & gas maintenance exposure
+          oil & gas maintenance exposure
         </span>
 
       </div>
@@ -257,12 +248,10 @@
 
       <div class="stat">
 
-        <strong>
-          Mechanical
-        </strong>
+        <strong>MNSE</strong>
 
         <span>
-          Maintenance & rotating equipment
+          professional engineering affiliation
         </span>
 
       </div>
@@ -270,12 +259,10 @@
 
       <div class="stat">
 
-        <strong>
-          HSE
-        </strong>
+        <strong>COREN</strong>
 
         <span>
-          Safety-critical operations
+          engineering professional positioning
         </span>
 
       </div>
@@ -287,10 +274,9 @@
 </section>
 
 
-
-<!-- =====================================================
-     ABOUT SECTION
-====================================================== -->
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
 <section
   id="about"
@@ -299,8 +285,7 @@
 
   <div class="container two-col">
 
-
-    <div>
+    <div class="reveal-left">
 
       <p class="eyebrow">
         PROFESSIONAL PROFILE
@@ -314,44 +299,37 @@
     </div>
 
 
-    <div>
+    <div class="reveal-right">
 
       <p>
-
         I am a Mechanical & Operations Engineer with practical
-        experience supporting oil & gas, offshore and industrial
-        operations.
-
+        experience across offshore oil & gas maintenance,
+        refinery maintenance and industrial operations.
       </p>
 
 
       <p>
-
-        My experience combines mechanical maintenance with
-        operational awareness, allowing me to understand not
-        only how equipment is maintained but also how equipment
-        performance affects safe and continuous operations.
-
+        My technical background covers preventive and corrective
+        maintenance, mechanical inspection, equipment
+        troubleshooting, rotating equipment, field operations,
+        process monitoring, technical documentation and
+        operational support.
       </p>
 
 
       <p>
-
-        My technical exposure includes pumps, motors, valves,
-        bearings, rotating equipment, mechanical components,
-        process monitoring, equipment inspection,
-        troubleshooting, preventive maintenance and corrective
-        maintenance.
-
+        I am experienced in working with multidisciplinary teams
+        including Operations, Maintenance, Engineering,
+        Instrumentation and HSE personnel to support safe,
+        reliable and efficient plant and equipment operation.
       </p>
 
 
       <p>
-
-        I am experienced in working with Operations, Maintenance,
-        Engineering and HSE teams while following established
-        safe-work procedures and industrial standards.
-
+        My professional goal is to contribute to organizations
+        where engineering discipline, equipment reliability,
+        operational excellence and safety are critical to
+        business performance.
       </p>
 
     </div>
@@ -361,10 +339,9 @@
 </section>
 
 
-
-<!-- =====================================================
-     EXPERIENCE SECTION
-====================================================== -->
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
 
 <section
   id="experience"
@@ -373,35 +350,30 @@
 
   <div class="container">
 
-
-    <p class="eyebrow">
+    <p class="eyebrow reveal">
       PROFESSIONAL EXPERIENCE
     </p>
 
 
-    <h2>
+    <h2 class="reveal">
       Engineering Experience Across Oil & Gas & Industrial Operations
     </h2>
 
 
-    <p class="section-intro">
-
-      Practical experience spanning offshore mechanical maintenance,
-      operations engineering, refinery maintenance and industrial
-      field execution, with a strong focus on equipment reliability,
-      safe execution and operational support.
-
+    <p class="section-intro reveal">
+      Practical experience spanning offshore mechanical
+      maintenance, operations engineering, refinery maintenance
+      and field operations in safety-critical industrial
+      environments.
     </p>
 
 
     <div class="timeline">
 
 
-      <!-- =================================================
-           CACTI RESOURCES
-      ================================================== -->
+      <!-- EXPERIENCE 01 -->
 
-      <article class="job">
+      <article class="job reveal">
 
         <div class="date">
           JUN 2025 — PRESENT
@@ -430,34 +402,36 @@
 
 
             <li>
-              Monitor process equipment and operating parameters,
-              identifying abnormal conditions and operational
+              Monitor process equipment and operating parameters
+              while identifying abnormal conditions and operational
               deviations for timely corrective action.
             </li>
 
 
             <li>
               Support preventive and corrective maintenance,
-              equipment troubleshooting and technical investigations.
+              equipment troubleshooting and root-cause
+              investigations.
             </li>
 
 
             <li>
-              Support field installation activities, vendors,
+              Coordinate field installation activities, vendors,
               materials and project execution requirements.
             </li>
 
 
             <li>
               Prepare and maintain operational, process and
-              production documentation.
+              production documentation while supporting HSE
+              compliance.
             </li>
 
 
             <li>
               Collaborate with Operations, Maintenance, HSE and
-              Engineering personnel to support equipment reliability
-              and continuity of operations.
+              Engineering personnel to support equipment
+              reliability and continuity of operations.
             </li>
 
           </ul>
@@ -467,12 +441,9 @@
       </article>
 
 
+      <!-- EXPERIENCE 02 -->
 
-      <!-- =================================================
-           WILKRISS / TOTALENERGIES
-      ================================================== -->
-
-      <article class="job featured-job">
+      <article class="job featured-job reveal">
 
         <div class="date">
           MAR 2020 — MAY 2025
@@ -492,7 +463,8 @@
 
 
           <h4>
-            Wilkriss Nigeria Limited · TotalEnergies Facilities / Platforms, Nigeria
+            Wilkriss Nigeria Limited · TotalEnergies
+            Facilities/Platforms, Nigeria
           </h4>
 
 
@@ -506,40 +478,42 @@
 
             <li>
               Inspected, dismantled, reassembled, installed,
-              aligned and fitted mechanical components and equipment.
+              aligned and fitted mechanical components and
+              equipment.
             </li>
 
 
             <li>
-              Worked with pumps, motors, valves, bearings and
+              Worked on pumps, motors, valves, bearings and
               associated rotating and mechanical equipment.
             </li>
 
 
             <li>
               Supported equipment troubleshooting, functional
-              testing, lubrication and mechanical condition checks.
+              testing, lubrication and mechanical condition
+              checks.
             </li>
 
 
             <li>
               Executed maintenance work orders and communicated
-              equipment defects, unsafe conditions and operational
-              abnormalities.
+              equipment defects, unsafe conditions and
+              operational abnormalities.
             </li>
 
 
             <li>
               Worked within offshore safe-work systems and
               collaborated with Operations, Maintenance and HSE
-              personnel.
+              personnel during maintenance activities.
             </li>
 
 
             <li>
-              Supported equipment reliability through timely
-              maintenance execution, defect identification and
-              corrective action.
+              Supported reliable equipment operation through
+              timely maintenance execution, defect identification
+              and corrective action.
             </li>
 
           </ul>
@@ -547,25 +521,15 @@
 
           <div class="experience-tags">
 
-            <span>
-              Offshore
-            </span>
+            <span>Offshore</span>
 
-            <span>
-              Mechanical Maintenance
-            </span>
+            <span>Mechanical Maintenance</span>
 
-            <span>
-              Rotating Equipment
-            </span>
+            <span>Rotating Equipment</span>
 
-            <span>
-              Oil & Gas
-            </span>
+            <span>Oil & Gas</span>
 
-            <span>
-              HSE
-            </span>
+            <span>HSE</span>
 
           </div>
 
@@ -574,12 +538,9 @@
       </article>
 
 
+      <!-- EXPERIENCE 03 -->
 
-      <!-- =================================================
-           NNPC
-      ================================================== -->
-
-      <article class="job">
+      <article class="job reveal">
 
         <div class="date">
           MAR 2015 — JAN 2016
@@ -608,7 +569,8 @@
 
             <li>
               Worked with pumps, motors, valves and bearings;
-              assisted with equipment dismantling and reassembly.
+              assisted with equipment dismantling and
+              reassembly.
             </li>
 
 
@@ -630,34 +592,31 @@
 </section>
 
 
-
-<!-- =====================================================
-     ENGINEERING EXPERTISE
-====================================================== -->
+<!-- =========================================================
+     ENGINEERING CAPABILITIES
+========================================================= -->
 
 <section
-  id="expertise"
+  id="skills"
   class="section capabilities"
 >
 
   <div class="container">
 
-
-    <p class="eyebrow">
+    <p class="eyebrow reveal">
       TECHNICAL EXPERTISE
     </p>
 
 
-    <h2>
+    <h2 class="reveal">
       Engineering Capabilities
     </h2>
 
 
-    <p class="section-intro dark-text">
-
-      Technical capabilities developed through offshore oil & gas,
-      refinery maintenance and operations engineering experience.
-
+    <p class="section-intro dark-text reveal">
+      Practical technical capability developed through offshore
+      oil & gas, refinery maintenance and operations engineering
+      experience.
     </p>
 
 
@@ -666,7 +625,7 @@
 
       <!-- 01 -->
 
-      <article class="capability-card">
+      <article class="capability-card reveal">
 
         <div class="capability-number">
           01
@@ -679,10 +638,8 @@
 
 
         <p>
-
           Preventive and corrective maintenance, inspection,
           troubleshooting and repair of mechanical equipment.
-
         </p>
 
 
@@ -700,10 +657,9 @@
       </article>
 
 
-
       <!-- 02 -->
 
-      <article class="capability-card">
+      <article class="capability-card reveal">
 
         <div class="capability-number">
           02
@@ -716,10 +672,8 @@
 
 
         <p>
-
           Field operations, process monitoring and operational
           support within oil & gas and industrial environments.
-
         </p>
 
 
@@ -736,10 +690,9 @@
       </article>
 
 
-
       <!-- 03 -->
 
-      <article class="capability-card">
+      <article class="capability-card reveal">
 
         <div class="capability-number">
           03
@@ -752,10 +705,8 @@
 
 
         <p>
-
-          Monitoring operating parameters and interpreting
-          engineering and process documentation.
-
+          Monitoring of operating parameters and interpretation
+          of engineering and process documentation.
         </p>
 
 
@@ -766,17 +717,16 @@
           <span>Flow</span>
           <span>Level</span>
           <span>SCADA/DCS</span>
-          <span>P&ID</span>
+          <span>P&amp;ID</span>
 
         </div>
 
       </article>
 
 
-
       <!-- 04 -->
 
-      <article class="capability-card">
+      <article class="capability-card reveal">
 
         <div class="capability-number">
           04
@@ -789,10 +739,8 @@
 
 
         <p>
-
           Safe-work execution and operational risk control in
           safety-critical industrial environments.
-
         </p>
 
 
@@ -810,10 +758,9 @@
       </article>
 
 
-
       <!-- 05 -->
 
-      <article class="capability-card">
+      <article class="capability-card reveal">
 
         <div class="capability-number">
           05
@@ -826,10 +773,8 @@
 
 
         <p>
-
-          Equipment fault identification, troubleshooting,
-          maintenance execution and corrective action support.
-
+          Maintenance execution, equipment fault identification,
+          troubleshooting and corrective-action support.
         </p>
 
 
@@ -846,10 +791,9 @@
       </article>
 
 
-
       <!-- 06 -->
 
-      <article class="capability-card">
+      <article class="capability-card reveal">
 
         <div class="capability-number">
           06
@@ -862,10 +806,8 @@
 
 
         <p>
-
           Field execution, work orders, vendor coordination,
           technical documentation and operational reporting.
-
         </p>
 
 
@@ -888,10 +830,9 @@
 </section>
 
 
-
-<!-- =====================================================
-     PROJECTS / TECHNICAL WORK
-====================================================== -->
+<!-- =========================================================
+     PROJECTS / TECHNICAL EXPOSURE
+========================================================= -->
 
 <section
   id="projects"
@@ -900,23 +841,20 @@
 
   <div class="container">
 
-
-    <p class="eyebrow">
-      TECHNICAL WORK & PROJECT EXPOSURE
+    <p class="eyebrow reveal">
+      TECHNICAL PROJECTS & EXPOSURE
     </p>
 
 
-    <h2>
-      Engineering Projects & Practical Technical Exposure
+    <h2 class="reveal">
+      Practical Engineering & Technical Work
     </h2>
 
 
-    <p class="projects-intro">
-
-      Practical engineering exposure covering mechanical systems,
-      materials testing, equipment inspection and industrial
-      operations.
-
+    <p class="projects-intro reveal">
+      Selected areas of technical exposure demonstrating
+      practical engineering knowledge, equipment understanding,
+      materials testing and field-oriented problem solving.
     </p>
 
 
@@ -925,7 +863,7 @@
 
       <!-- PROJECT 01 -->
 
-      <article class="project-card">
+      <article class="project-card reveal">
 
         <div class="project-number">
           PROJECT 01
@@ -938,11 +876,10 @@
 
 
         <p>
-
-          Practical exposure to inspection, dismantling, fitting,
-          alignment, reassembly, lubrication, troubleshooting and
-          maintenance of mechanical and rotating equipment.
-
+          Practical exposure to inspection, maintenance,
+          dismantling, reassembly, fitting, alignment,
+          troubleshooting and functional checks of mechanical
+          equipment.
         </p>
 
 
@@ -952,17 +889,16 @@
           <span>Motors</span>
           <span>Valves</span>
           <span>Bearings</span>
-          <span>Maintenance</span>
+          <span>Alignment</span>
 
         </div>
 
       </article>
 
 
-
       <!-- PROJECT 02 -->
 
-      <article class="project-card">
+      <article class="project-card reveal">
 
         <div class="project-number">
           PROJECT 02
@@ -970,24 +906,22 @@
 
 
         <h3>
-          Materials Testing & Engineering Laboratory
+          Materials Testing & Laboratory Exposure
         </h3>
 
 
         <p>
-
-          Practical exposure to mechanical materials testing,
-          specimen preparation, metallography and engineering
-          laboratory equipment.
-
+          Technical exposure to mechanical testing and materials
+          laboratory equipment including tensile, bend, impact,
+          hardness and environmental testing.
         </p>
 
 
         <div class="project-tags">
 
           <span>600 kN UTM</span>
-          <span>Hardness Testing</span>
           <span>Impact Testing</span>
+          <span>Hardness</span>
           <span>Metallography</span>
 
         </div>
@@ -995,10 +929,9 @@
       </article>
 
 
-
       <!-- PROJECT 03 -->
 
-      <article class="project-card">
+      <article class="project-card reveal">
 
         <div class="project-number">
           PROJECT 03
@@ -1006,52 +939,14 @@
 
 
         <h3>
-          Field Operations & Equipment Reliability
+          NDT & Inspection Knowledge
         </h3>
 
 
         <p>
-
-          Operational support involving field monitoring,
-          equipment condition checks, work execution,
-          documentation and coordination with technical teams.
-
-        </p>
-
-
-        <div class="project-tags">
-
-          <span>Field Operations</span>
-          <span>Inspection</span>
-          <span>Reporting</span>
-          <span>Reliability</span>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- PROJECT 04 -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          PROJECT 04
-        </div>
-
-
-        <h3>
-          NDT & Inspection Training
-        </h3>
-
-
-        <p>
-
-          Technical development in Non-Destructive Testing methods
-          including visual, liquid penetrant, magnetic particle,
-          ultrasonic, radiographic and eddy-current inspection.
-
+          Technical development in non-destructive testing
+          principles, inspection methods, calibration concepts
+          and engineering quality-control practices.
         </p>
 
 
@@ -1069,49 +964,45 @@
       </article>
 
 
+      <!-- PROJECT 04 -->
 
-      <!-- PROJECT 05 -->
-
-      <article class="project-card">
+      <article class="project-card reveal">
 
         <div class="project-number">
-          PROJECT 05
+          PROJECT 04
         </div>
 
 
         <h3>
-          Well Testing & Production Operations Training
+          Field Operations & Process Monitoring
         </h3>
 
 
         <p>
-
-          Technical learning and practical study covering well
-          testing operations, field measurements, calculations,
-          instrumentation and calibration principles.
-
+          Practical operations support involving field monitoring,
+          equipment condition checks, operational documentation
+          and communication of abnormalities.
         </p>
 
 
         <div class="project-tags">
 
-          <span>Well Testing</span>
-          <span>Calibration</span>
-          <span>Pressure</span>
-          <span>Flow</span>
+          <span>Field Operations</span>
+          <span>Process Monitoring</span>
+          <span>Reporting</span>
+          <span>Equipment Checks</span>
 
         </div>
 
       </article>
 
 
+      <!-- PROJECT 05 -->
 
-      <!-- PROJECT 06 -->
-
-      <article class="project-card">
+      <article class="project-card reveal">
 
         <div class="project-number">
-          PROJECT 06
+          PROJECT 05
         </div>
 
 
@@ -1121,11 +1012,9 @@
 
 
         <p>
-
-          Application and study of safe-work systems including
-          Permit to Work, LOTO, risk assessment, toolbox meetings,
-          hazard identification and emergency response.
-
+          Practical application and understanding of permit-to-work,
+          isolation, risk assessment, toolbox meetings, hazard
+          identification and emergency-response principles.
         </p>
 
 
@@ -1134,7 +1023,40 @@
           <span>PTW</span>
           <span>LOTO</span>
           <span>Risk Assessment</span>
-          <span>HSE</span>
+          <span>Toolbox Talk</span>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 06 -->
+
+      <article class="project-card reveal">
+
+        <div class="project-number">
+          PROJECT 06
+        </div>
+
+
+        <h3>
+          Engineering Documentation & Reporting
+        </h3>
+
+
+        <p>
+          Preparation and maintenance of operational records,
+          maintenance information, technical reports, work orders
+          and field documentation.
+        </p>
+
+
+        <div class="project-tags">
+
+          <span>Work Orders</span>
+          <span>Reports</span>
+          <span>Documentation</span>
+          <span>Technical Records</span>
 
         </div>
 
@@ -1147,10 +1069,9 @@
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      EDUCATION & CREDENTIALS
-====================================================== -->
+========================================================= -->
 
 <section
   id="education"
@@ -1159,23 +1080,20 @@
 
   <div class="container">
 
-
-    <p class="eyebrow">
+    <p class="eyebrow reveal">
       QUALIFICATIONS & CREDENTIALS
     </p>
 
 
-    <h2>
+    <h2 class="reveal">
       Education, Training & Professional Development
     </h2>
 
 
-    <p class="section-intro credentials-intro">
-
-      Engineering education and professional development supporting
-      mechanical maintenance, offshore operations and industrial
-      field work.
-
+    <p class="credentials-intro reveal">
+      Engineering education and safety-focused professional
+      development supporting mechanical maintenance, offshore
+      operations and industrial field work.
     </p>
 
 
@@ -1184,7 +1102,7 @@
 
       <!-- DEGREE -->
 
-      <article class="credential-card featured-credential">
+      <article class="credential-card featured-credential reveal">
 
         <div class="credential-type">
           DEGREE
@@ -1208,10 +1126,9 @@
       </article>
 
 
-
       <!-- ND -->
 
-      <article class="credential-card">
+      <article class="credential-card reveal">
 
         <div class="credential-type">
           NATIONAL DIPLOMA
@@ -1235,10 +1152,9 @@
       </article>
 
 
-
       <!-- BOSIET -->
 
-      <article class="credential-card">
+      <article class="credential-card reveal">
 
         <div class="credential-type">
           OFFSHORE SAFETY
@@ -1262,10 +1178,9 @@
       </article>
 
 
-
       <!-- HSE -->
 
-      <article class="credential-card">
+      <article class="credential-card reveal">
 
         <div class="credential-type">
           HSE
@@ -1290,10 +1205,9 @@
       </article>
 
 
-
       <!-- H2S -->
 
-      <article class="credential-card">
+      <article class="credential-card reveal">
 
         <div class="credential-type">
           PROCESS SAFETY
@@ -1311,17 +1225,16 @@
 
 
         <p class="credential-meta">
-          Hazard awareness and safe working practices in potentially
-          H₂S-containing environments.
+          Hazard awareness and safe working practices in
+          potentially H₂S-containing environments.
         </p>
 
       </article>
 
 
-
       <!-- OPERATIONS -->
 
-      <article class="credential-card">
+      <article class="credential-card reveal">
 
         <div class="credential-type">
           OPERATIONS
@@ -1339,17 +1252,16 @@
 
 
         <p class="credential-meta">
-          Operational coordination, field execution and performance
-          awareness.
+          Operational coordination, field execution and
+          performance awareness.
         </p>
 
       </article>
 
 
-
       <!-- NSE -->
 
-      <article class="credential-card professional-card">
+      <article class="credential-card professional-card reveal">
 
         <div class="credential-type">
           PROFESSIONAL AFFILIATION
@@ -1367,7 +1279,8 @@
 
 
         <p class="credential-meta">
-          Registration No. 74560
+          Professional engineering affiliation · Registration
+          No. 74560
         </p>
 
       </article>
@@ -1379,66 +1292,83 @@
 </section>
 
 
-
-<!-- =====================================================
-     TECHNICAL EXPOSURE
-====================================================== -->
+<!-- =========================================================
+     TECHNICAL EQUIPMENT
+========================================================= -->
 
 <section class="section equipment">
 
   <div class="container">
 
-
-    <p class="eyebrow">
+    <p class="eyebrow reveal">
       TECHNICAL EXPOSURE
     </p>
 
 
-    <h2>
-      Materials, Testing & Engineering Equipment
+    <h2 class="reveal">
+      Engineering Equipment & Technical Areas
     </h2>
 
 
-    <div class="tags">
+    <div class="tags reveal">
 
       <span>
-        Universal Testing Machine — 600 kN
+        Universal Testing Machine (600 kN)
       </span>
+
 
       <span>
         Impact Testing Machine
       </span>
 
+
       <span>
         Hardness Testing Machine
       </span>
 
-      <span>
-        Metallographic Polishing Machine
-      </span>
 
       <span>
-        Temperature & Humidity Chamber
+        Polishing Machine
       </span>
+
+
+      <span>
+        Humidity & Temperature Chamber
+      </span>
+
 
       <span>
         Carbon Steel Etching
       </span>
 
+
       <span>
         Stainless Steel Etching
       </span>
+
+
+      <span>
+        Metallography
+      </span>
+
 
       <span>
         Workshop Test Piece Preparation
       </span>
 
-      <span>
-        Mechanical Testing
-      </span>
 
       <span>
-        Materials Inspection
+        Mechanical Inspection
+      </span>
+
+
+      <span>
+        Rotating Equipment
+      </span>
+
+
+      <span>
+        Mechanical Tools
       </span>
 
     </div>
@@ -1448,17 +1378,15 @@
 </section>
 
 
-
-<!-- =====================================================
-     PROFESSIONAL VALUE
-====================================================== -->
+<!-- =========================================================
+     PROFESSIONAL POSITIONING
+========================================================= -->
 
 <section class="section dark">
 
   <div class="container two-col">
 
-
-    <div>
+    <div class="reveal-left">
 
       <p class="eyebrow">
         PROFESSIONAL VALUE
@@ -1466,73 +1394,33 @@
 
 
       <h2>
-        What I bring to an engineering team.
+        Built for demanding engineering environments.
       </h2>
 
     </div>
 
 
-    <div>
+    <div class="reveal-right">
 
       <p>
-
-        <strong>
-          Equipment reliability:
-        </strong>
-
-        Practical mechanical maintenance experience focused on
-        keeping equipment safe, available and operational.
-
+        I bring together mechanical maintenance knowledge,
+        field operations experience and an HSE-focused approach
+        to engineering work.
       </p>
 
 
       <p>
-
-        <strong>
-          Field execution:
-        </strong>
-
-        Comfortable working in demanding field environments
-        where safe execution, communication and discipline are
-        essential.
-
+        My experience allows me to work across the interface
+        between maintenance and operations, helping teams
+        identify equipment issues, execute maintenance safely
+        and maintain reliable plant performance.
       </p>
 
 
       <p>
-
-        <strong>
-          Operations awareness:
-        </strong>
-
-        Ability to connect maintenance activities with operating
-        requirements and equipment performance.
-
-      </p>
-
-
-      <p>
-
-        <strong>
-          HSE mindset:
-        </strong>
-
-        Strong awareness of safe-work systems, hazard identification,
-        risk assessment and operational controls.
-
-      </p>
-
-
-      <p>
-
-        <strong>
-          Continuous development:
-        </strong>
-
-        Actively developing knowledge across oil & gas operations,
-        maintenance, NDT, materials testing, well testing and
-        engineering practices.
-
+        I am particularly interested in opportunities within
+        oil & gas, LNG, energy, industrial maintenance,
+        offshore operations and engineering services.
       </p>
 
     </div>
@@ -1542,10 +1430,9 @@
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      CONTACT
-====================================================== -->
+========================================================= -->
 
 <section
   id="contact"
@@ -1554,8 +1441,7 @@
 
   <div class="container contact-box">
 
-
-    <div>
+    <div class="reveal-left">
 
       <p class="eyebrow">
         CONTACT
@@ -1568,54 +1454,27 @@
 
 
       <p>
-
-        I am open to engineering opportunities, offshore
-        assignments, mechanical maintenance roles, operations
-        positions, technical collaborations and professional
-        connections across oil & gas, energy and industrial
-        operations.
-
+        Open to engineering opportunities, offshore assignments,
+        technical collaborations and professional connections
+        across oil & gas, energy, industrial maintenance and
+        field operations.
       </p>
-
-
-      <div class="social-links">
-
-        <!-- Replace the LinkedIn # with your actual LinkedIn URL -->
-
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
-
-
-        <!-- Replace the GitHub # with your actual GitHub URL -->
-
-        <a
-          href="https://edafepromise-tech.github.io/Promise-Edafe-Okugbeni-portfolio/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Portfolio
-        </a>
-
-      </div>
 
     </div>
 
 
+    <div class="contact-links reveal-right">
 
-    <div class="contact-links">
-
-
-      <a href="mailto:edafepromise@gmail.com">
+      <a
+        href="mailto:edafepromise@gmail.com"
+      >
         edafepromise@gmail.com
       </a>
 
 
-      <a href="tel:+2348063981317">
+      <a
+        href="tel:+2348063981317"
+      >
         +234 806 398 1317
       </a>
 
@@ -1627,10 +1486,37 @@
 
       <a
         class="btn primary"
-        href="mailto:edafepromise@gmail.com?subject=Engineering%20Opportunity%20for%20Engr.%20Promise%20Edafe%20Okugbeni"
+        href="mailto:edafepromise@gmail.com?subject=Engineering%20Opportunity%20for%20Promise%20Okugbeni"
       >
         Email Me
       </a>
+
+
+      <div class="social-links">
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+
+        <a
+          href="mailto:edafepromise@gmail.com"
+        >
+          Email
+        </a>
+
+
+        <a
+          href="tel:+2348063981317"
+        >
+          Phone
+        </a>
+
+      </div>
 
     </div>
 
@@ -1642,10 +1528,9 @@
 </main>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-====================================================== -->
+========================================================= -->
 
 <footer>
 
@@ -1654,7 +1539,7 @@
     <div>
 
       <strong>
-        Engr. Promise Edafe Okugbeni
+        Engr. Promise Edafe Okugbeni (MNSE, COREN)
       </strong>
 
       <span>
@@ -1665,7 +1550,8 @@
 
 
     <span>
-      © 2026 Promise Edafe Okugbeni. All Rights Reserved.
+      © <span id="current-year">2026</span>
+      Promise Edafe Okugbeni. All Rights Reserved.
     </span>
 
   </div>
@@ -1673,10 +1559,9 @@
 </footer>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      BACK TO TOP
-====================================================== -->
+========================================================= -->
 
 <a
   href="#home"
@@ -1687,13 +1572,12 @@
 </a>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-====================================================== -->
+========================================================= -->
 
 <script src="script.js"></script>
 
-
 </body>
+
 </html>
