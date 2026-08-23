@@ -1,465 +1,488 @@
-/* =====================================================
+/* =========================================================
    PROMISE EDAFE OKUGBENI
-   PORTFOLIO WEBSITE JAVASCRIPT
-===================================================== */
+   WEBSITE JAVASCRIPT
+   COMPLETE FINAL SCRIPT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
 
 
-/* =====================================================
-   MOBILE NAVIGATION
-===================================================== */
+  /* =======================================================
+     01. ELEMENTS
+  ======================================================= */
 
-const nav = document.querySelector('.nav');
-const menuBtn = document.querySelector('.menu-btn');
-const navigation = document.querySelector('#main-navigation');
+  const nav = document.querySelector(".nav");
+  const menuBtn = document.querySelector(".menu-btn");
+  const navigationLinks = document.querySelectorAll(".nav nav a");
 
-if (menuBtn && nav) {
+  const header = document.querySelector(".site-header");
 
-  menuBtn.addEventListener('click', () => {
+  const backToTop = document.querySelector(".back-to-top");
 
-    const isOpen = nav.classList.toggle('open');
-
-    menuBtn.setAttribute(
-      'aria-expanded',
-      isOpen ? 'true' : 'false'
-    );
-
-    menuBtn.setAttribute(
-      'aria-label',
-      isOpen
-        ? 'Close navigation menu'
-        : 'Open navigation menu'
-    );
-
-    menuBtn.textContent = isOpen ? '✕' : '☰';
-
-  });
-
-}
-
-
-/* =====================================================
-   CLOSE MOBILE MENU WHEN LINK IS CLICKED
-===================================================== */
-
-document.querySelectorAll('#main-navigation a').forEach(link => {
-
-  link.addEventListener('click', () => {
-
-    if (nav) {
-      nav.classList.remove('open');
-    }
-
-    if (menuBtn) {
-
-      menuBtn.setAttribute(
-        'aria-expanded',
-        'false'
-      );
-
-      menuBtn.setAttribute(
-        'aria-label',
-        'Open navigation menu'
-      );
-
-      menuBtn.textContent = '☰';
-
-    }
-
-  });
-
-});
-
-
-/* =====================================================
-   CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-===================================================== */
-
-document.addEventListener('click', event => {
-
-  if (!nav || !menuBtn || !navigation) {
-    return;
-  }
-
-  const clickedInsideNav =
-    nav.contains(event.target);
-
-  if (!clickedInsideNav) {
-
-    nav.classList.remove('open');
-
-    menuBtn.setAttribute(
-      'aria-expanded',
-      'false'
-    );
-
-    menuBtn.setAttribute(
-      'aria-label',
-      'Open navigation menu'
-    );
-
-    menuBtn.textContent = '☰';
-
-  }
-
-});
-
-
-/* =====================================================
-   HEADER SCROLL EFFECT
-===================================================== */
-
-const header =
-  document.querySelector('.site-header');
-
-function updateHeader() {
-
-  if (!header) {
-    return;
-  }
-
-  if (window.scrollY > 40) {
-
-    header.classList.add('scrolled');
-
-  } else {
-
-    header.classList.remove('scrolled');
-
-  }
-
-}
-
-window.addEventListener(
-  'scroll',
-  updateHeader,
-  { passive: true }
-);
-
-updateHeader();
-
-
-/* =====================================================
-   ACTIVE NAVIGATION LINK
-===================================================== */
-
-const sections =
-  document.querySelectorAll('main section[id]');
-
-const navLinks =
-  document.querySelectorAll(
-    '#main-navigation a'
+  const revealElements = document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right"
   );
 
 
-function updateActiveNavigation() {
+  /* =======================================================
+     02. MOBILE MENU
+  ======================================================= */
 
-  let currentSection = '';
+  if (menuBtn && nav) {
 
-  const scrollPosition =
-    window.scrollY + 180;
+    menuBtn.addEventListener("click", () => {
+
+      const isOpen = nav.classList.toggle("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+      menuBtn.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+
+      document.body.classList.toggle(
+        "menu-open",
+        isOpen
+      );
+
+    });
+
+  }
 
 
-  sections.forEach(section => {
+  /* =======================================================
+     03. CLOSE MOBILE MENU AFTER CLICK
+  ======================================================= */
 
-    const sectionTop =
-      section.offsetTop;
+  navigationLinks.forEach((link) => {
 
-    const sectionHeight =
-      section.offsetHeight;
+    link.addEventListener("click", () => {
 
-    if (
-      scrollPosition >= sectionTop &&
-      scrollPosition <
-        sectionTop + sectionHeight
-    ) {
+      if (!nav || !menuBtn) return;
 
-      currentSection =
-        section.getAttribute('id');
+      nav.classList.remove("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuBtn.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      menuBtn.textContent = "☰";
+
+      document.body.classList.remove(
+        "menu-open"
+      );
+
+    });
+
+  });
+
+
+  /* =======================================================
+     04. CLOSE MENU WHEN CLICKING OUTSIDE
+  ======================================================= */
+
+  document.addEventListener("click", (event) => {
+
+    if (!nav || !menuBtn) return;
+
+    const clickedInsideNav =
+      nav.contains(event.target);
+
+    if (!clickedInsideNav) {
+
+      nav.classList.remove("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuBtn.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      menuBtn.textContent = "☰";
+
+      document.body.classList.remove(
+        "menu-open"
+      );
 
     }
 
   });
 
 
-  navLinks.forEach(link => {
+  /* =======================================================
+     05. HEADER SCROLL EFFECT
+  ======================================================= */
 
-    const href =
-      link.getAttribute('href');
+  const updateHeader = () => {
 
-    link.classList.remove('active');
+    if (!header) return;
 
-    if (
-      href === `#${currentSection}`
-    ) {
+    if (window.scrollY > 40) {
 
-      link.classList.add('active');
+      header.classList.add("scrolled");
+
+    } else {
+
+      header.classList.remove("scrolled");
 
     }
 
-  });
-
-}
+  };
 
 
-window.addEventListener(
-  'scroll',
-  updateActiveNavigation,
-  { passive: true }
-);
+  updateHeader();
 
-window.addEventListener(
-  'load',
-  updateActiveNavigation
-);
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+  );
 
 
-/* =====================================================
-   SCROLL REVEAL ANIMATION
-===================================================== */
+  /* =======================================================
+     06. ACTIVE NAVIGATION
+  ======================================================= */
 
-const revealElements =
-  document.querySelectorAll('.reveal');
-
-
-if ('IntersectionObserver' in window) {
-
-  const revealObserver =
-    new IntersectionObserver(
-      (entries, observer) => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              'visible'
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
+  const sections = document.querySelectorAll(
+    "main section[id]"
+  );
 
 
-  revealElements.forEach(element => {
+  const updateActiveNavigation = () => {
 
-    revealObserver.observe(element);
+    let currentSection = "";
 
-  });
-
-} else {
-
-  revealElements.forEach(element => {
-
-    element.classList.add('visible');
-
-  });
-
-}
+    const scrollPosition =
+      window.scrollY + 140;
 
 
-/* =====================================================
-   BACK TO TOP BUTTON
-===================================================== */
+    sections.forEach((section) => {
 
-const backToTop =
-  document.querySelector('.back-to-top');
+      const sectionTop =
+        section.offsetTop;
 
-
-function updateBackToTop() {
-
-  if (!backToTop) {
-    return;
-  }
-
-  if (window.scrollY > 500) {
-
-    backToTop.classList.add('show');
-
-  } else {
-
-    backToTop.classList.remove('show');
-
-  }
-
-}
-
-
-window.addEventListener(
-  'scroll',
-  updateBackToTop,
-  { passive: true }
-);
-
-updateBackToTop();
-
-
-/* =====================================================
-   SMOOTH SCROLL
-===================================================== */
-
-document.querySelectorAll(
-  'a[href^="#"]'
-).forEach(anchor => {
-
-  anchor.addEventListener(
-    'click',
-    function(event) {
-
-      const targetId =
-        this.getAttribute('href');
+      const sectionHeight =
+        section.offsetHeight;
 
       if (
-        !targetId ||
-        targetId === '#'
+        scrollPosition >= sectionTop &&
+        scrollPosition <
+          sectionTop + sectionHeight
       ) {
-        return;
+
+        currentSection =
+          section.getAttribute("id");
+
       }
 
+    });
 
-      const target =
-        document.querySelector(targetId);
 
-      if (!target) {
-        return;
+    navigationLinks.forEach((link) => {
+
+      const href =
+        link.getAttribute("href");
+
+      link.classList.remove("active");
+
+
+      if (
+        href === `#${currentSection}`
+      ) {
+
+        link.classList.add("active");
+
       }
 
+    });
 
-      event.preventDefault();
-
-
-      const headerHeight =
-        header
-          ? header.offsetHeight
-          : 0;
+  };
 
 
-      const targetPosition =
-        target.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerHeight;
+  updateActiveNavigation();
 
 
-      window.scrollTo({
+  window.addEventListener(
+    "scroll",
+    updateActiveNavigation,
+    { passive: true }
+  );
 
-        top: targetPosition,
 
-        behavior: 'smooth'
+  /* =======================================================
+     07. SCROLL REVEAL ANIMATIONS
+  ======================================================= */
 
-      });
+  if (
+    "IntersectionObserver" in window &&
+    revealElements.length
+  ) {
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -50px 0px"
+        }
+      );
+
+
+    revealElements.forEach((element) => {
+
+      revealObserver.observe(element);
+
+    });
+
+  } else {
+
+    revealElements.forEach((element) => {
+
+      element.classList.add("visible");
+
+    });
+
+  }
+
+
+  /* =======================================================
+     08. BACK TO TOP BUTTON
+  ======================================================= */
+
+  const updateBackToTop = () => {
+
+    if (!backToTop) return;
+
+
+    if (window.scrollY > 600) {
+
+      backToTop.classList.add("show");
+
+    } else {
+
+      backToTop.classList.remove("show");
+
+    }
+
+  };
+
+
+  updateBackToTop();
+
+
+  window.addEventListener(
+    "scroll",
+    updateBackToTop,
+    { passive: true }
+  );
+
+
+  /* =======================================================
+     09. BACK TO TOP CLICK
+  ======================================================= */
+
+  if (backToTop) {
+
+    backToTop.addEventListener(
+      "click",
+      (event) => {
+
+        event.preventDefault();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     10. ESCAPE KEY CLOSES MOBILE MENU
+  ======================================================= */
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (event.key !== "Escape") return;
+
+      if (!nav || !menuBtn) return;
+
+      nav.classList.remove("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuBtn.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      menuBtn.textContent = "☰";
+
+      document.body.classList.remove(
+        "menu-open"
+      );
 
     }
   );
 
-});
 
+  /* =======================================================
+     11. HANDLE RESIZE
+  ======================================================= */
 
-/* =====================================================
-   CONTACT LINK TRACKING
-===================================================== */
+  window.addEventListener(
+    "resize",
+    () => {
 
-document.querySelectorAll(
-  'a[href^="mailto:"], a[href^="tel:"]'
-).forEach(link => {
+      if (window.innerWidth > 850) {
 
-  link.addEventListener('click', () => {
+        if (nav) {
+          nav.classList.remove("open");
+        }
 
-    const type =
-      link.href.startsWith('mailto:')
-        ? 'email'
-        : 'phone';
+        if (menuBtn) {
 
-    console.log(
-      `Contact action: ${type}`
-    );
+          menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-  });
+          menuBtn.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
 
-});
+          menuBtn.textContent = "☰";
 
+        }
 
-/* =====================================================
-   CURRENT YEAR
-===================================================== */
+        document.body.classList.remove(
+          "menu-open"
+        );
 
-const footerYear =
-  document.querySelector(
-    'footer .container'
+      }
+
+      updateActiveNavigation();
+
+    }
   );
 
 
-if (footerYear) {
+  /* =======================================================
+     12. SMOOTH INTERNAL LINKS
+  ======================================================= */
+
+  document
+    .querySelectorAll('a[href^="#"]')
+    .forEach((link) => {
+
+      link.addEventListener(
+        "click",
+        (event) => {
+
+          const targetId =
+            link.getAttribute("href");
+
+          if (
+            !targetId ||
+            targetId === "#"
+          ) {
+            return;
+          }
+
+
+          const target =
+            document.querySelector(
+              targetId
+            );
+
+
+          if (!target) return;
+
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+      );
+
+    });
+
+
+  /* =======================================================
+     13. CURRENT YEAR
+  ======================================================= */
 
   const currentYear =
-    new Date().getFullYear();
-
-  footerYear.innerHTML =
-    footerYear.innerHTML.replace(
-      /©\s*\d{4}/,
-      `© ${currentYear}`
+    document.querySelector(
+      "[data-current-year]"
     );
 
-}
 
+  if (currentYear) {
 
-/* =====================================================
-   KEYBOARD ACCESSIBILITY
-===================================================== */
-
-document.addEventListener(
-  'keydown',
-  event => {
-
-    if (
-      event.key === 'Escape' &&
-      nav
-    ) {
-
-      nav.classList.remove('open');
-
-      if (menuBtn) {
-
-        menuBtn.setAttribute(
-          'aria-expanded',
-          'false'
-        );
-
-        menuBtn.setAttribute(
-          'aria-label',
-          'Open navigation menu'
-        );
-
-        menuBtn.textContent = '☰';
-
-      }
-
-    }
+    currentYear.textContent =
+      new Date().getFullYear();
 
   }
-);
 
 
-/* =====================================================
-   PAGE LOADED
-===================================================== */
+  /* =======================================================
+     14. CONSOLE MESSAGE
+  ======================================================= */
 
-window.addEventListener(
-  'load',
-  () => {
+  console.log(
+    "Promise Edafe Okugbeni Portfolio loaded successfully."
+  );
 
-    document.body.classList.add(
-      'page-loaded'
-    );
 
-  }
-);
+});
