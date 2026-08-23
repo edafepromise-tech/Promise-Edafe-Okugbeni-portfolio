@@ -1,1731 +1,432 @@
 /* =========================================================
    PROMISE EDAFE OKUGBENI
    MECHANICAL & OPERATIONS ENGINEER
-   COMPLETE WEBSITE STYLES
+   COMPLETE WEBSITE JAVASCRIPT
 ========================================================= */
 
 
 /* =========================================================
-   01. GLOBAL RESET
+   01. ELEMENTS
 ========================================================= */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+const nav = document.querySelector(".nav");
+const menuBtn = document.querySelector(".menu-btn");
+const siteHeader = document.querySelector(".site-header");
+const backToTop = document.querySelector(".back-to-top");
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
+const navLinks = document.querySelectorAll("nav a");
 
-body {
-  margin: 0;
-  font-family: "Inter", Arial, sans-serif;
-  color: #14212b;
-  background: #f5f7f6;
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-
-body.menu-open {
-  overflow: hidden;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-}
-
-button,
-input,
-textarea {
-  font: inherit;
-}
-
-.container {
-  width: min(1160px, 92%);
-  margin: 0 auto;
-}
+const revealElements = document.querySelectorAll(
+  ".reveal, .reveal-left, .reveal-right"
+);
 
 
 /* =========================================================
-   02. SITE HEADER
+   02. MOBILE NAVIGATION
 ========================================================= */
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+menuBtn?.addEventListener("click", () => {
 
-  background: rgba(5, 20, 28, 0.96);
+  const isOpen = nav.classList.toggle("open");
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  menuBtn.setAttribute(
+    "aria-expanded",
+    isOpen ? "true" : "false"
+  );
 
-  color: #ffffff;
+  menuBtn.setAttribute(
+    "aria-label",
+    isOpen
+      ? "Close navigation menu"
+      : "Open navigation menu"
+  );
 
-  border-bottom: 1px solid rgba(224, 180, 87, 0.16);
+  menuBtn.textContent = isOpen ? "✕" : "☰";
 
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
-}
+  document.body.classList.toggle(
+    "menu-open",
+    isOpen
+  );
 
-.site-header.scrolled {
-  background: rgba(4, 17, 24, 0.99);
-
-  box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.18);
-}
-
-.nav {
-  min-height: 76px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  position: relative;
-}
+});
 
 
 /* =========================================================
-   03. BRAND
+   03. CLOSE MOBILE MENU WHEN LINK IS CLICKED
 ========================================================= */
 
-.brand {
-  display: inline-flex;
-  align-items: center;
+navLinks.forEach((link) => {
 
-  text-decoration: none;
+  link.addEventListener("click", () => {
 
-  font-size: 1rem;
-  font-weight: 900;
+    nav.classList.remove("open");
 
-  letter-spacing: 2px;
-
-  color: #ffffff;
-
-  white-space: nowrap;
-}
-
-.brand span {
-  color: #e0b457;
-  margin-left: 2px;
-}
-
-.brand:hover {
-  color: #ffffff;
-}
-
-
-/* =========================================================
-   04. NAVIGATION
-========================================================= */
-
-.nav nav {
-  display: flex;
-  align-items: center;
-
-  gap: 28px;
-}
-
-.nav nav a {
-  position: relative;
-
-  color: #d8e3e7;
-
-  text-decoration: none;
-
-  font-size: 0.84rem;
-  font-weight: 700;
-
-  transition:
-    color 0.25s ease;
-}
-
-.nav nav a::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -9px;
-
-  width: 0;
-  height: 2px;
-
-  background: #e0b457;
-
-  transition: width 0.25s ease;
-}
-
-.nav nav a:hover,
-.nav nav a.active {
-  color: #ffffff;
-}
-
-.nav nav a:hover::after,
-.nav nav a.active::after {
-  width: 100%;
-}
-
-
-/* =========================================================
-   05. MOBILE MENU BUTTON
-========================================================= */
-
-.menu-btn {
-  display: none;
-
-  border: 0;
-  background: transparent;
-
-  color: #ffffff;
-
-  font-size: 1.7rem;
-
-  cursor: pointer;
-
-  padding: 8px;
-
-  line-height: 1;
-}
-
-
-/* =========================================================
-   06. HERO
-========================================================= */
-
-.hero {
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(38, 109, 124, 0.38),
-      transparent 31%
-    ),
-
-    radial-gradient(
-      circle at 15% 85%,
-      rgba(214, 164, 69, 0.08),
-      transparent 25%
-    ),
-
-    linear-gradient(
-      135deg,
-      #061720 0%,
-      #0b2936 55%,
-      #15505d 100%
+    menuBtn?.setAttribute(
+      "aria-expanded",
+      "false"
     );
 
-  color: #ffffff;
-
-  padding: 120px 0 110px;
-}
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
+    menuBtn?.setAttribute(
+      "aria-label",
+      "Open navigation menu"
     );
 
-  background-size: 45px 45px;
+    if (menuBtn) {
+      menuBtn.textContent = "☰";
+    }
 
-  pointer-events: none;
-}
+    document.body.classList.remove("menu-open");
 
-.hero::after {
-  content: "";
+  });
 
-  position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  right: -250px;
-  bottom: -250px;
-
-  border: 1px solid rgba(224, 180, 87, 0.12);
-
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 0 70px rgba(224, 180, 87, 0.025),
-    0 0 0 140px rgba(224, 180, 87, 0.015);
-
-  pointer-events: none;
-}
-
-.hero-grid {
-  position: relative;
-
-  z-index: 2;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.45fr)
-    minmax(320px, 0.75fr);
-
-  gap: 75px;
-
-  align-items: center;
-}
-
-.hero-content {
-  max-width: 820px;
-}
+});
 
 
 /* =========================================================
-   07. EYEBROW
+   04. CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
 ========================================================= */
 
-.eyebrow {
-  margin: 0 0 15px;
+document.addEventListener("click", (event) => {
 
-  color: #d6a445;
+  if (!nav || !menuBtn) return;
 
-  font-size: 0.7rem;
+  const clickedInsideNav = nav.contains(event.target);
 
-  font-weight: 900;
+  if (!clickedInsideNav && nav.classList.contains("open")) {
 
-  letter-spacing: 2.8px;
+    nav.classList.remove("open");
 
-  line-height: 1.4;
-}
-
-
-/* =========================================================
-   08. HERO TYPOGRAPHY
-========================================================= */
-
-.hero h1 {
-  margin: 0 0 26px;
-
-  max-width: 950px;
-
-  font-family: "Manrope", "Inter", Arial, sans-serif;
-
-  font-size: clamp(2.8rem, 6vw, 5.3rem);
-
-  line-height: 1.01;
-
-  letter-spacing: -3.8px;
-
-  font-weight: 800;
-}
-
-.hero h1 span {
-  color: #e0b457;
-}
-
-.hero h2 {
-  max-width: 780px;
-
-  margin: 0 0 17px;
-
-  color: #edf5f7;
-
-  font-size: 1.05rem;
-
-  line-height: 1.6;
-
-  font-weight: 700;
-}
-
-.lead {
-  max-width: 800px;
-
-  color: #edf5f7;
-
-  font-size: 1.05rem;
-
-  font-weight: 700;
-
-  margin-bottom: 14px;
-}
-
-.intro {
-  max-width: 750px;
-
-  color: #c6d5da;
-
-  font-size: 1rem;
-
-  line-height: 1.8;
-}
-
-.hero-tagline {
-  color: #e0b457;
-
-  font-size: 1.05rem;
-
-  font-weight: 800;
-
-  margin-bottom: 12px;
-}
-
-
-/* =========================================================
-   09. HERO BUTTONS
-========================================================= */
-
-.actions {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 13px;
-
-  margin-top: 32px;
-}
-
-.btn {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-height: 48px;
-
-  padding: 12px 22px;
-
-  border-radius: 5px;
-
-  text-decoration: none;
-
-  font-size: 0.88rem;
-
-  font-weight: 800;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.btn.primary {
-  background: #d6a445;
-
-  color: #10202a;
-
-  box-shadow:
-    0 10px 25px rgba(214, 164, 69, 0.18);
-}
-
-.btn.primary:hover {
-  background: #e8bd6b;
-
-  box-shadow:
-    0 14px 30px rgba(214, 164, 69, 0.28);
-}
-
-.btn.secondary {
-  color: #ffffff;
-
-  background: rgba(255, 255, 255, 0.04);
-
-  border: 1px solid rgba(255, 255, 255, 0.34);
-}
-
-.btn.secondary:hover {
-  color: #e0b457;
-
-  border-color: #e0b457;
-
-  background: rgba(224, 180, 87, 0.06);
-}
-
-
-/* =========================================================
-   10. HERO CARD
-========================================================= */
-
-.hero-card {
-  padding: 32px;
-
-  border-radius: 9px;
-
-  border: 1px solid rgba(214, 164, 69, 0.36);
-
-  background: rgba(255, 255, 255, 0.065);
-
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.28);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.hero-card h2 {
-  margin: 14px 0 7px;
-
-  font-size: 1.7rem;
-
-  line-height: 1.2;
-
-  color: #ffffff;
-}
-
-.hero-card > p {
-  margin-bottom: 18px;
-
-  color: #b9cbd1;
-
-  font-size: 0.9rem;
-}
-
-.status {
-  color: #d6a445;
-
-  font-size: 0.67rem;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-}
-
-.stat {
-  padding: 17px 0;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-.stat strong {
-  display: inline;
-
-  margin-right: 8px;
-
-  color: #e0b457;
-
-  font-size: 1.25rem;
-}
-
-.stat span {
-  color: #b8c9cf;
-
-  font-size: 0.88rem;
-}
-
-
-/* =========================================================
-   11. GENERAL SECTIONS
-========================================================= */
-
-.section {
-  padding: 100px 0;
-}
-
-.section h2 {
-  margin: 0 0 27px;
-
-  font-family: "Manrope", "Inter", Arial, sans-serif;
-
-  font-size: clamp(2rem, 4vw, 3.25rem);
-
-  line-height: 1.08;
-
-  letter-spacing: -1.7px;
-
-  font-weight: 800;
-}
-
-.section-intro {
-  max-width: 780px;
-
-  margin-top: -8px;
-
-  color: #aebfc5;
-
-  font-size: 1rem;
-}
-
-.two-col {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.8fr)
-    minmax(0, 1.2fr);
-
-  gap: 85px;
-}
-
-.two-col p {
-  margin-bottom: 20px;
-
-  color: #52636b;
-}
-
-
-/* =========================================================
-   12. DARK SECTION
-========================================================= */
-
-.dark {
-  background: #091c26;
-
-  color: #ffffff;
-}
-
-.dark h2 {
-  color: #ffffff;
-}
-
-
-/* =========================================================
-   13. EXPERIENCE TIMELINE
-========================================================= */
-
-.timeline {
-  margin-top: 52px;
-}
-
-.job {
-  display: grid;
-
-  grid-template-columns: 180px minmax(0, 1fr);
-
-  gap: 38px;
-
-  padding: 35px 0;
-
-  border-top: 1px solid #344c57;
-}
-
-.job:last-child {
-  border-bottom: 1px solid #344c57;
-}
-
-.job h3 {
-  margin: 0;
-
-  color: #ffffff;
-
-  font-family: "Manrope", "Inter", Arial, sans-serif;
-
-  font-size: 1.5rem;
-
-  line-height: 1.3;
-}
-
-.job h4 {
-  margin: 5px 0 17px;
-
-  color: #d7a94d;
-
-  font-size: 0.95rem;
-
-  font-weight: 700;
-}
-
-.job ul {
-  padding-left: 20px;
-}
-
-.job li {
-  margin: 8px 0;
-
-  color: #c4d0d4;
-
-  font-size: 0.94rem;
-}
-
-.date {
-  color: #d7a94d;
-
-  font-size: 0.74rem;
-
-  font-weight: 900;
-
-  letter-spacing: 1px;
-
-  line-height: 1.6;
-}
-
-.experience-label {
-  display: inline-block;
-
-  margin: 0 0 8px;
-
-  color: #d7a94d !important;
-
-  font-size: 0.67rem !important;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-}
-
-.experience-tags {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin-top: 22px;
-}
-
-.experience-tags span {
-  padding: 6px 10px;
-
-  border: 1px solid #49616b;
-
-  border-radius: 20px;
-
-  color: #d6e1e4;
-
-  font-size: 0.72rem;
-
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   14. CAPABILITIES
-========================================================= */
-
-.capabilities {
-  background: #f5f7f6;
-}
-
-.dark-text {
-  color: #596970 !important;
-
-  max-width: 780px;
-
-  margin-bottom: 45px;
-}
-
-.capability-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 20px;
-}
-
-.capability-card {
-  position: relative;
-
-  overflow: hidden;
-
-  min-height: 275px;
-
-  padding: 29px;
-
-  background: #ffffff;
-
-  border: 1px solid #dce3e2;
-
-  border-radius: 7px;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.capability-card::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  width: 100%;
-  height: 3px;
-
-  background: #d6a445;
-
-  transform: scaleX(0);
-
-  transform-origin: left;
-
-  transition: transform 0.25s ease;
-}
-
-.capability-card:hover {
-  transform: translateY(-5px);
-
-  border-color: #d6a445;
-
-  box-shadow:
-    0 18px 40px rgba(15, 40, 50, 0.1);
-}
-
-.capability-card:hover::before {
-  transform: scaleX(1);
-}
-
-.capability-number {
-  margin-bottom: 15px;
-
-  color: #d6a445;
-
-  font-size: 0.7rem;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-}
-
-.capability-card h3 {
-  margin: 0 0 12px;
-
-  color: #123b47;
-
-  font-family: "Manrope", "Inter", Arial, sans-serif;
-
-  font-size: 1.22rem;
-
-  line-height: 1.3;
-}
-
-.capability-card p {
-  margin-bottom: 20px;
-
-  color: #5a6870;
-
-  font-size: 0.91rem;
-}
-
-.capability-tags {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 6px;
-}
-
-.capability-tags span {
-  padding: 5px 9px;
-
-  border: 1px solid #d8e0de;
-
-  border-radius: 4px;
-
-  background: #f2f5f4;
-
-  color: #40545d;
-
-  font-size: 0.7rem;
-
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   15. PROJECTS
-========================================================= */
-
-.projects {
-  background: #ffffff;
-}
-
-.projects-intro {
-  max-width: 780px;
-
-  color: #596970;
-
-  margin-bottom: 45px;
-}
-
-.project-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 20px;
-}
-
-.project-card {
-  position: relative;
-
-  overflow: hidden;
-
-  min-height: 290px;
-
-  padding: 30px;
-
-  background: #f7f9f8;
-
-  border: 1px solid #dce3e2;
-
-  border-radius: 7px;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-
-  border-color: #d6a445;
-
-  box-shadow:
-    0 18px 42px rgba(15, 40, 50, 0.11);
-}
-
-.project-number {
-  color: #d6a445;
-
-  font-size: 0.7rem;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-
-  margin-bottom: 18px;
-}
-
-.project-card h3 {
-  margin-bottom: 12px;
-
-  color: #123b47;
-
-  font-family: "Manrope", "Inter", Arial, sans-serif;
-
-  font-size: 1.22rem;
-}
-
-.project-card p {
-  color: #5a6870;
-
-  font-size: 0.91rem;
-}
-
-.project-tags {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 6px;
-
-  margin-top: 22px;
-}
-
-.project-tags span {
-  padding: 5px 9px;
-
-  background: #ffffff;
-
-  border: 1px solid #d5dfdc;
-
-  border-radius: 4px;
-
-  color: #40545d;
-
-  font-size: 0.7rem;
-
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   16. EDUCATION & CREDENTIALS
-========================================================= */
-
-.credentials {
-  background: #e9eeec;
-}
-
-.credentials-intro {
-  max-width: 780px;
-
-  margin-bottom: 45px;
-
-  color: #596970 !important;
-}
-
-.credentials-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 18px;
-}
-
-.credential-card {
-  position: relative;
-
-  padding: 29px;
-
-  background: #ffffff;
-
-  border: 1px solid #d5dfdc;
-
-  border-radius: 7px;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.credential-card:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 15px 35px rgba(15, 40, 50, 0.1);
-}
-
-.featured-credential {
-  border-top: 4px solid #d6a445;
-}
-
-.credential-type {
-  margin-bottom: 12px;
-
-  color: #b98429;
-
-  font-size: 0.67rem;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-}
-
-.credential-card h3 {
-  margin: 0 0 8px;
-
-  color: #123b47;
-
-  font-family: "Manrope", "Inter", Arial, sans-serif;
-
-  font-size: 1.23rem;
-
-  line-height: 1.35;
-}
-
-.credential-card .institution {
-  margin: 0 0 8px;
-
-  color: #40545d;
-
-  font-weight: 700;
-}
-
-.credential-meta {
-  margin: 0;
-
-  color: #697980;
-
-  font-size: 0.87rem;
-}
-
-.professional-card {
-  grid-column: 1 / -1;
-}
-
-
-/* =========================================================
-   17. TECHNICAL EXPOSURE
-========================================================= */
-
-.equipment {
-  background: #ffffff;
-}
-
-.equipment h2 {
-  margin-bottom: 35px;
-}
-
-.tags {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 11px;
-}
-
-.tags span {
-  padding: 10px 15px;
-
-  border: 1px solid #cdd8d6;
-
-  background: #f6f8f7;
-
-  border-radius: 30px;
-
-  color: #40545d;
-
-  font-size: 0.88rem;
-
-  font-weight: 600;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.tags span:hover {
-  transform: translateY(-2px);
-
-  border-color: #d6a445;
-
-  background: #fffaf0;
-
-  color: #123b47;
-}
-
-
-/* =========================================================
-   18. CONTACT
-========================================================= */
-
-.contact {
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 80% 30%,
-      rgba(41, 108, 122, 0.3),
-      transparent 32%
-    ),
-
-    linear-gradient(
-      135deg,
-      #0b2a36,
-      #123b47
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "false"
     );
 
-  color: #ffffff;
-}
+    menuBtn.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
 
-.contact::after {
-  content: "";
+    menuBtn.textContent = "☰";
 
-  position: absolute;
+    document.body.classList.remove("menu-open");
 
-  width: 350px;
-  height: 350px;
+  }
 
-  right: -180px;
-  bottom: -180px;
-
-  border: 1px solid rgba(224, 180, 87, 0.13);
-
-  border-radius: 50%;
-}
-
-.contact-box {
-  position: relative;
-
-  z-index: 2;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(300px, 0.7fr);
-
-  gap: 75px;
-
-  align-items: center;
-}
-
-.contact h2 {
-  color: #ffffff;
-}
-
-.contact p {
-  max-width: 720px;
-
-  color: #c6d6da;
-}
-
-.contact-links {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 13px;
-}
-
-.contact-links a:not(.btn),
-.contact-links span {
-  color: #e6f0f2;
-
-  text-decoration: none;
-
-  font-size: 0.94rem;
-
-  transition: color 0.2s ease;
-}
-
-.contact-links a:not(.btn):hover {
-  color: #e0b457;
-}
-
-.contact-links .btn {
-  width: max-content;
-
-  margin-top: 10px;
-}
+});
 
 
 /* =========================================================
-   19. SOCIAL / PROFESSIONAL LINKS
+   05. CLOSE MOBILE MENU WITH ESCAPE KEY
 ========================================================= */
 
-.social-links {
-  display: flex;
+document.addEventListener("keydown", (event) => {
 
-  flex-wrap: wrap;
+  if (event.key !== "Escape") return;
 
-  gap: 10px;
+  if (nav?.classList.contains("open")) {
 
-  margin-top: 20px;
-}
+    nav.classList.remove("open");
 
-.social-links a {
-  display: inline-flex;
+    menuBtn?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
-  align-items: center;
-  justify-content: center;
+    menuBtn?.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
 
-  min-height: 42px;
+    if (menuBtn) {
+      menuBtn.textContent = "☰";
+    }
 
-  padding: 9px 15px;
+    document.body.classList.remove("menu-open");
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
-  border-radius: 5px;
-
-  color: #ffffff;
-
-  text-decoration: none;
-
-  font-size: 0.8rem;
-
-  font-weight: 700;
-
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.social-links a:hover {
-  transform: translateY(-2px);
-
-  color: #e0b457;
-
-  border-color: #e0b457;
-}
+});
 
 
 /* =========================================================
-   20. FOOTER
+   06. HEADER SCROLL EFFECT
 ========================================================= */
 
-footer {
-  background: #061720;
+function updateHeader() {
 
-  color: #aebec4;
+  if (!siteHeader) return;
 
-  padding: 30px 0;
+  if (window.scrollY > 30) {
+
+    siteHeader.classList.add("scrolled");
+
+  } else {
+
+    siteHeader.classList.remove("scrolled");
+
+  }
+
 }
 
-footer .container {
-  display: flex;
 
-  align-items: center;
+window.addEventListener(
+  "scroll",
+  updateHeader,
+  { passive: true }
+);
 
-  justify-content: space-between;
-
-  gap: 20px;
-}
-
-footer strong {
-  display: block;
-
-  color: #ffffff;
-
-  font-size: 0.9rem;
-}
-
-footer span {
-  font-size: 0.82rem;
-}
+updateHeader();
 
 
 /* =========================================================
-   21. BACK TO TOP
+   07. BACK TO TOP BUTTON
 ========================================================= */
 
-.back-to-top {
-  position: fixed;
+function updateBackToTop() {
 
-  right: 22px;
-  bottom: 22px;
+  if (!backToTop) return;
 
-  z-index: 900;
+  if (window.scrollY > 600) {
 
-  width: 45px;
-  height: 45px;
+    backToTop.classList.add("show");
 
-  display: flex;
+  } else {
 
-  align-items: center;
-  justify-content: center;
+    backToTop.classList.remove("show");
 
-  border: 1px solid rgba(224, 180, 87, 0.5);
+  }
 
-  border-radius: 50%;
-
-  background: #123b47;
-
-  color: #e0b457;
-
-  text-decoration: none;
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  transform: translateY(10px);
-
-  transition:
-    opacity 0.25s ease,
-    visibility 0.25s ease,
-    transform 0.25s ease,
-    background 0.25s ease;
 }
 
-.back-to-top.show {
-  opacity: 1;
 
-  visibility: visible;
+window.addEventListener(
+  "scroll",
+  updateBackToTop,
+  { passive: true }
+);
 
-  transform: translateY(0);
-}
-
-.back-to-top:hover {
-  background: #d6a445;
-
-  color: #10202a;
-}
+updateBackToTop();
 
 
 /* =========================================================
-   22. SCROLL REVEAL ANIMATIONS
+   08. SCROLL REVEAL ANIMATIONS
 ========================================================= */
 
-.reveal,
-.reveal-left,
-.reveal-right {
-  opacity: 0;
+if ("IntersectionObserver" in window) {
 
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
 
-.reveal {
-  transform: translateY(30px);
-}
+      entries.forEach((entry) => {
 
-.reveal-left {
-  transform: translateX(-35px);
-}
+        if (!entry.isIntersecting) return;
 
-.reveal-right {
-  transform: translateX(35px);
-}
+        entry.target.classList.add("visible");
 
-.reveal.visible,
-.reveal-left.visible,
-.reveal-right.visible {
-  opacity: 1;
+        observer.unobserve(entry.target);
 
-  transform: translate(0);
-}
+      });
+
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    }
+  );
 
 
-/* =========================================================
-   23. FOCUS ACCESSIBILITY
-========================================================= */
+  revealElements.forEach((element) => {
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid rgba(224, 180, 87, 0.65);
+    revealObserver.observe(element);
 
-  outline-offset: 3px;
-}
+  });
 
+} else {
 
-/* =========================================================
-   24. TABLET
-========================================================= */
+  revealElements.forEach((element) => {
 
-@media (max-width: 1000px) {
+    element.classList.add("visible");
 
-  .hero-grid {
-    grid-template-columns: 1fr;
-
-    gap: 48px;
-  }
-
-  .hero-card {
-    max-width: 650px;
-  }
-
-  .two-col {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-  }
-
-  .capability-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .contact-box {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-  }
+  });
 
 }
 
 
 /* =========================================================
-   25. MOBILE NAVIGATION
+   09. ACTIVE NAVIGATION
 ========================================================= */
 
-@media (max-width: 850px) {
+const sections = document.querySelectorAll(
+  "main section[id]"
+);
 
-  .nav nav {
-    display: none;
-  }
 
-  .menu-btn {
-    display: block;
-  }
+if ("IntersectionObserver" in window) {
 
-  .nav.open nav {
-    position: absolute;
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
 
-    display: flex;
+      entries.forEach((entry) => {
 
-    top: 76px;
+        if (!entry.isIntersecting) return;
 
-    left: 0;
-    right: 0;
+        const currentId = entry.target.getAttribute("id");
 
-    flex-direction: column;
+        navLinks.forEach((link) => {
 
-    align-items: stretch;
+          link.classList.remove("active");
 
-    gap: 0;
+          const linkTarget =
+            link.getAttribute("href");
 
-    padding: 12px 4% 20px;
+          if (
+            linkTarget === `#${currentId}`
+          ) {
 
-    background: #061720;
+            link.classList.add("active");
 
-    border-bottom: 1px solid rgba(224, 180, 87, 0.2);
+          }
 
-    box-shadow:
-      0 20px 30px rgba(0, 0, 0, 0.2);
-  }
+        });
 
-  .nav.open nav a {
-    padding: 13px 0;
+      });
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  }
+    },
+    {
+      rootMargin: "-35% 0px -55% 0px",
+      threshold: 0
+    }
+  );
 
-  .nav.open nav a:last-child {
-    border-bottom: none;
-  }
 
-  .nav nav a::after {
-    display: none;
-  }
+  sections.forEach((section) => {
+
+    sectionObserver.observe(section);
+
+  });
 
 }
 
 
 /* =========================================================
-   26. MOBILE
+   10. SMOOTH INTERNAL NAVIGATION
 ========================================================= */
 
-@media (max-width: 700px) {
+document.querySelectorAll(
+  'a[href^="#"]'
+).forEach((link) => {
 
-  .container {
-    width: min(92%, 620px);
-  }
+  link.addEventListener("click", (event) => {
 
-  .hero {
-    padding: 78px 0 75px;
-  }
+    const targetId =
+      link.getAttribute("href");
 
-  .hero h1 {
-    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    if (
+      !targetId ||
+      targetId === "#"
+    ) {
+      return;
+    }
 
-    letter-spacing: -2.5px;
-  }
+    const target =
+      document.querySelector(targetId);
 
-  .hero-grid {
-    gap: 38px;
-  }
+    if (!target) return;
 
-  .section {
-    padding: 72px 0;
-  }
+    event.preventDefault();
 
-  .job {
-    grid-template-columns: 1fr;
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 
-    gap: 8px;
-  }
+  });
 
-  .date {
-    margin-bottom: 7px;
-  }
+});
 
-  .capability-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
+/* =========================================================
+   11. CURRENT YEAR
+========================================================= */
 
-  .credentials-grid {
-    grid-template-columns: 1fr;
-  }
+const currentYear =
+  document.querySelector(
+    ".current-year"
+  );
 
-  .professional-card {
-    grid-column: auto;
-  }
+if (currentYear) {
 
-  .contact-box {
-    gap: 35px;
-  }
-
-  footer .container {
-    flex-direction: column;
-
-    align-items: flex-start;
-  }
+  currentYear.textContent =
+    new Date().getFullYear();
 
 }
 
 
 /* =========================================================
-   27. SMALL PHONES
+   12. IMAGE LAZY LOADING
 ========================================================= */
 
-@media (max-width: 520px) {
+document.querySelectorAll("img").forEach((img) => {
 
-  .container {
-    width: min(92%, 420px);
+  if (!img.hasAttribute("loading")) {
+
+    img.setAttribute(
+      "loading",
+      "lazy"
+    );
+
   }
 
-  .site-header {
-    position: sticky;
-  }
-
-  .nav {
-    min-height: 70px;
-  }
-
-  .brand {
-    font-size: 0.88rem;
-
-    letter-spacing: 1.6px;
-  }
-
-  .hero {
-    padding: 68px 0 65px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.45rem, 13vw, 3.6rem);
-
-    letter-spacing: -2px;
-  }
-
-  .hero h2,
-  .lead {
-    font-size: 0.94rem;
-  }
-
-  .intro {
-    font-size: 0.91rem;
-  }
-
-  .actions {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .actions .btn {
-    width: 100%;
-
-    text-align: center;
-  }
-
-  .hero-card {
-    padding: 24px;
-  }
-
-  .hero-card h2 {
-    font-size: 1.45rem;
-  }
-
-  .section {
-    padding: 65px 0;
-  }
-
-  .section h2 {
-    font-size: 2rem;
-
-    letter-spacing: -1px;
-  }
-
-  .job h3 {
-    font-size: 1.3rem;
-  }
-
-  .job li {
-    font-size: 0.9rem;
-  }
-
-  .capability-card,
-  .project-card,
-  .credential-card {
-    padding: 24px;
-  }
-
-  .tags span {
-    font-size: 0.8rem;
-
-    padding: 8px 12px;
-  }
-
-  .contact-links .btn {
-    width: 100%;
-  }
-
-  .social-links {
-    flex-direction: column;
-  }
-
-  .social-links a {
-    width: 100%;
-  }
-
-}
+});
 
 
 /* =========================================================
-   28. REDUCED MOTION
+   13. PREVENT EMPTY SOCIAL LINKS
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+document.querySelectorAll(
+  '.social-links a[href="#"]'
+).forEach((link) => {
 
-  html {
-    scroll-behavior: auto;
-  }
+  link.addEventListener("click", (event) => {
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
+    event.preventDefault();
 
-    animation-iteration-count: 1 !important;
+    alert(
+      "This professional profile link will be added soon."
+    );
 
-    transition-duration: 0.01ms !important;
+  });
 
-    scroll-behavior: auto !important;
-  }
-
-}
+});
 
 
 /* =========================================================
-   29. PRINT
+   14. PAGE LOAD
 ========================================================= */
 
-@media print {
+window.addEventListener(
+  "load",
+  () => {
 
-  .site-header,
-  .menu-btn,
-  .actions,
-  .back-to-top {
-    display: none !important;
+    document.body.classList.add(
+      "page-loaded"
+    );
+
   }
+);
 
-  body {
-    background: #ffffff;
 
-    color: #000000;
-  }
+/* =========================================================
+   15. CONSOLE BRANDING
+========================================================= */
 
-  .section,
-  .hero,
-  .dark,
-  .contact,
-  footer {
-    background: #ffffff !important;
+console.log(
+  "%cEngr. Promise Edafe Okugbeni",
+  "font-size:18px;font-weight:800;color:#d6a445;"
+);
 
-    color: #000000 !important;
-  }
-
-  .hero h1,
-  .hero h2,
-  .section h2,
-  .job h3 {
-    color: #000000 !important;
-  }
-
-}
+console.log(
+  "%cMechanical & Operations Engineer | Oil & Gas",
+  "font-size:13px;color:#123b47;"
+);
